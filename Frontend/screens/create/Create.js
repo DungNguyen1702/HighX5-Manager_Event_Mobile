@@ -19,11 +19,14 @@ export default function Create(props) {
         formData.append('date_end', infor.date_end)
         formData.append('description', infor.description)
         formData.append('type_name', infor.type_name)
-        formData.append('image', {
-            uri: infor.image,
-            type: 'image/jpeg',
-            name: 'event.jpg'
-        })
+        if(infor.image)
+        {
+            formData.append('image', {
+                uri: infor.image,
+                type: 'image/jpeg',
+                name: 'event.jpg'
+            })
+        }
         formData.append('createdBy', userId)
         formData.append('status', 1)
         formData.append('departments', JSON.stringify(departmentList))

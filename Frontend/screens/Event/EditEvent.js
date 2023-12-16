@@ -148,11 +148,14 @@ export default function EditEvent(props) {
         formData.append('date_start', formatDateTime(date_start))
         formData.append('date_end', formatDateTime(date_end))
         formData.append('description', description)
-        formData.append('image', {
-            uri: img,
-            type: 'image/jpeg',
-            name: 'event.jpg'
-        })
+        if(img)
+        {
+            formData.append('image', {
+                uri: img,
+                type: 'image/jpeg',
+                name: 'event.jpg'
+            })
+        }
         await EventRepository.updateEvent(formData)
             .then(res => {
             })
