@@ -12,9 +12,7 @@ export default function MyEvent({route}) {
 
     const navigation = useNavigation()
 
-    const {loadingAPI, userId} = route.params
-
-    console.log(loadingAPI)
+    const {userId} = route.params
 
     useEffect(() => {
         startSpinner()
@@ -35,10 +33,10 @@ export default function MyEvent({route}) {
                     })
                 ).stop()
             })
-    }, [loadingAPI])
+    }, [])
 
     const handleEventDetail = (eventId, eventName) => {
-        navigation.navigate('MyEventDetail', { eventId, eventName, userId: route.params.userId, loadingAPI : loadingAPI })
+        navigation.navigate('MyEventDetail', { eventId, eventName, userId: route.params.userId})
     }
 
     const RenderItem = ({ item, index }) => (

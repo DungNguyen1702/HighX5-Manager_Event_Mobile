@@ -14,7 +14,7 @@ const MyEventDetail = (props) => {
     const [selectedDepartment, setSelectedDepartment] = useState(null)
     const [loading, setLoading] = useState(true)
 
-    const {loadingAPI, eventId } = props.route.params
+    const {loadingAPI , eventId } = props.route.params
 
     useEffect(() => {
         startSpinner()
@@ -41,7 +41,7 @@ const MyEventDetail = (props) => {
     
     const navigation = useNavigation()
     const handleEditEvent = (eventId, eventName) => {
-        navigation.navigate('EditEvent', { eventId, eventName, loadingAPI : loadingAPI })
+        navigation.navigate('EditEvent', { eventId, eventName, loadingAPI : true })
     }
 
     const handleApply = () => {
@@ -50,7 +50,7 @@ const MyEventDetail = (props) => {
 
     const handleDelete = async () => {
         await EventRepository.deleteEvent(event.id)
-        navigation.navigate('MyEvent')
+        navigation.navigate('MyEvent' , {userId: props.route.params.userId})
     }
     
     const handleTask = async () => {
