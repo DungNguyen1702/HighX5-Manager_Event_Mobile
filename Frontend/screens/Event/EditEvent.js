@@ -36,6 +36,8 @@ export default function EditEvent(props) {
     const [isDateEndPickerVisible, setDateEndPickerVisibility] = useState(false)
     const [img, setImg] = useState('')
 
+    const {loadingAPI} = props.route.params
+
     const handleDateStartChange = (date) => {
         setDateStart(date)
         setDatePickerVisibility(false)
@@ -158,7 +160,7 @@ export default function EditEvent(props) {
                 console.log(err)
             })
             .finally(() => {
-                navigation.navigate('MyEventDetail', { eventId: event.id, eventName: name })
+                navigation.navigate('MyEventDetail', { eventId: event.id, eventName: name, loadingAPI : !loadingAPI })
             })
     }
 

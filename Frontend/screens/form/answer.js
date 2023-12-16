@@ -92,16 +92,16 @@ export default function Answer() {
         >
             <View style={styles.container}>
                 <Text style={styles.title}>
-                    Đơn ứng tuyển của người dùng {user.name}
+                    Application from user '{user.name}'
                 </Text>
                 <View style={styles.userContainer}>
                     <Text style={styles.titleUserInfo}>
-                        Thông tin thành viên
+                        User's informations
                     </Text>
 
                     {/* Name */}
                     <View style={styles.littleInfoContainer}>
-                        <Text style={styles.label}>Họ tên: </Text>
+                        <Text style={styles.label}>Name: </Text>
                         <Text style={styles.info}>{user.name}</Text>
                     </View>
 
@@ -113,19 +113,19 @@ export default function Answer() {
 
                     {/* telephone */}
                     <View style={styles.littleInfoContainer}>
-                        <Text style={styles.label}>Điện thoại: </Text>
+                        <Text style={styles.label}>Telephone: </Text>
                         <Text style={styles.info}>{user.telephone}</Text>
                     </View>
 
                     {/* university */}
                     <View style={styles.littleInfoContainer}>
-                        <Text style={styles.label}>Đại học: </Text>
+                        <Text style={styles.label}>University: </Text>
                         <Text style={styles.info}>{user.university}</Text>
                     </View>
 
                     {/* address */}
                     <View style={styles.littleInfoContainer}>
-                        <Text style={styles.label}>Địa chỉ: </Text>
+                        <Text style={styles.label}>Address: </Text>
                         <Text style={styles.info}>{user.address}</Text>
                     </View>
                 </View>
@@ -133,7 +133,7 @@ export default function Answer() {
                 {/* answer */}
                 <View style={styles.questionContainer}>
                     <Text style={styles.titleUserInfo}>
-                        Bảng trả lời câu hỏi
+                        User's answers
                     </Text>
                     {question && question.map((question, index) => {
                         return (

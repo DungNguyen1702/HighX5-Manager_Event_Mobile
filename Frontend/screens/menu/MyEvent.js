@@ -12,8 +12,11 @@ export default function MyEvent({route}) {
 
     const navigation = useNavigation()
 
+    const {loadingAPI, userId} = route.params
+
+    console.log(loadingAPI)
+
     useEffect(() => {
-        const userId = route.params.userId
         startSpinner()
         EventRepository.getEventByUserId(userId)
             .then((responseEvents) => {
@@ -32,10 +35,10 @@ export default function MyEvent({route}) {
                     })
                 ).stop()
             })
-    }, [])
+    }, [loadingAPI])
 
     const handleEventDetail = (eventId, eventName) => {
-        navigation.navigate('MyEventDetail', { eventId, eventName, userId: route.params.userId })
+        navigation.navigate('MyEventDetail', { eventId, eventName, userId: route.params.userId, loadingAPI : loadingAPI })
     }
 
     const RenderItem = ({ item, index }) => (
